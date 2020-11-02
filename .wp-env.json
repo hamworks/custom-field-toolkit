@@ -1,0 +1,11 @@
+{
+    "core": "WordPress/Wordpress#5.5.3",
+    "plugins": [
+        "."
+    ],
+    "config": {
+        "WP_ENVIRONMENT_TYPE": "local"
+    },
+    "port": 5678,
+    "testsPort": 5679
+}

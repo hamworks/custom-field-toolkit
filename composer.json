@@ -1,0 +1,19 @@
+{
+    "name": "hamworks/custom-field-ui-from-json",
+    "autoload": {
+        "psr-4": {
+            "HAMWORKS\\Custom_Fields_UI_From_JSON\\": "inc"
+        }
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "*",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "squizlabs/php_codesniffer": "*",
+        "wp-coding-standards/wpcs": "*"
+    },
+    "scripts": {
+        "format": "phpcbf --standard=./.phpcs.xml.dist --report-summary --report-source",
+        "lint": "phpcs --standard=./.phpcs.xml.dist",
+        "phpcs": "phpcs --standard=./.phpcs.xml.dist"
+    }
+}

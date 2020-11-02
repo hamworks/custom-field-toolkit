@@ -1,0 +1,24 @@
+{
+    "title": "title",
+    "fields": [
+        {
+            "key": "meta_number",
+            "type": "number",
+            "description": "Number",
+            "default": 0
+        },
+        {
+            "key": "meta_boolean",
+            "type": "boolean",
+            "description": "Boolean",
+            "default": false
+        },
+        {
+            "key": "meta_string",
+            "type": "string",
+            "description": "String",
+            "default": ""
+        }
+    ]
+
+}
