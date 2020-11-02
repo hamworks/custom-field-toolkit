@@ -2,11 +2,10 @@
 <ruleset name="WordPress Coding Standards based custom ruleset for your plugin">
 	<!-- What to scan -->
 
-	<file>./inc</file>
-	<exclude-pattern>/vendor/</exclude-pattern>
-	<exclude-pattern>/node_modules/</exclude-pattern>
-	<exclude-pattern>*.asset.php</exclude-pattern>
-	<exclude-pattern>*.js</exclude-pattern>
+	<file>./</file>
+	<exclude-pattern>vendor</exclude-pattern>
+	<exclude-pattern>node_modules</exclude-pattern>
+	<exclude-pattern>/build/</exclude-pattern>
 
 	<arg value="ps"/>
 	<arg name="basepath" value="."/>
