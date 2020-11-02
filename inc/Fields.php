@@ -1,9 +1,10 @@
 <?php
 
-
 namespace HAMWORKS\Custom_Fields_UI_From_JSON;
 
-
+/**
+ * Class Fields
+ */
 class Fields {
 	/**
 	 * @var array
@@ -57,6 +58,12 @@ class Fields {
 			'single'       => true,
 			'show_in_rest' => true,
 		);
+
+		if ( is_protected_meta( $field['key'] ) ) {
+			$default['auth_callback'] = function ( $allowed, $meta_key, $post_ID, $user_id, $cap, $caps ) {
+				return current_user_can( 'edit_post', $post_ID );
+			};
+		}
 
 		$args = array_merge( $default, (array) $field );
 		register_post_meta( $this->post_type, $field['key'], $args );

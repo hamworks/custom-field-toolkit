@@ -18,6 +18,66 @@
             "type": "string",
             "description": "String",
             "default": ""
+        },
+        {
+            "key": "_meta_private_string",
+            "type": "string",
+            "description": "Private String",
+            "default": ""
+        },
+        {
+            "key": "meta_url",
+            "type": "string",
+            "description": "URL",
+            "show_in_rest": {
+                "schema": {
+                    "format": "uri"
+                }
+            },
+            "default": ""
+        },
+        {
+            "key": "meta_select",
+            "type": "string",
+            "description": "Select",
+            "default": "Bob",
+            "show_in_rest": {
+                "schema": {
+                    "enum": ["Alice", "Bob"]
+                }
+            }
+        }
+    ],
+    "experimentalFields": [
+        {
+            "key": "meta_email",
+            "type": "string",
+            "description": "Email",
+            "show_in_rest": {
+                "schema": {
+                    "format": "email"
+                }
+            }
+        },
+        {
+            "key": "meta_color",
+            "type": "string",
+            "description": "color",
+            "show_in_rest": {
+                "schema": {
+                    "format": "hex-color"
+                }
+            }
+        },
+        {
+            "key": "meta_date_time",
+            "type": "string",
+            "description": "date time",
+            "show_in_rest": {
+                "schema": {
+                    "format": "date-time"
+                }
+            }
         }
     ]
 
