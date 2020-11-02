@@ -1,43 +1,43 @@
 {
-  "name": "@hamworks/custom-field-ui-from-json",
-  "scripts": {
-    "env": "wp-env",
-    "start": "wp-scripts start src/admin.js",
-    "build": "NODE_ENV=production wp-scripts build src/admin.js",
-    "format-js": "wp-scripts format-js ./src",
-    "lint-php": "./vendor/bin/phpcs --standard=./.phpcs.xml.dist",
-    "lint-js": "wp-scripts lint-js ./src",
-    "lint-js:fix": "wp-scripts lint-js ./src --fix"
-  },
-  "devDependencies": {
-    "@wordpress/browserslist-config": "^2.7.0",
-    "@wordpress/env": "^2.1.0",
-    "@wordpress/eslint-plugin": "^7.1.0",
-    "@wordpress/prettier-config": "^0.4.0",
-    "@wordpress/scripts": "^12.2.0",
-    "husky": "^4.3.0",
-    "lint-staged": "^10.3.0",
-    "prettier": "npm:wp-prettier@2.0.5",
-    "stylelint-config-wordpress": "^17.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+    "name": "@hamworks/custom-field-ui-from-json",
+    "scripts": {
+        "env": "wp-env",
+        "start": "wp-scripts start src/admin.js",
+        "build": "NODE_ENV=production wp-scripts build src/admin.js",
+        "format-js": "wp-scripts format-js ./src",
+        "lint-php": "./vendor/bin/phpcs --standard=./.phpcs.xml.dist",
+        "lint-js": "wp-scripts lint-js ./src",
+        "lint-js:fix": "wp-scripts lint-js ./src --fix"
+    },
+    "devDependencies": {
+        "@wordpress/browserslist-config": "^2.7.0",
+        "@wordpress/env": "^2.1.0",
+        "@wordpress/eslint-plugin": "^7.1.0",
+        "@wordpress/prettier-config": "^0.4.0",
+        "@wordpress/scripts": "^12.2.0",
+        "husky": "^4.3.0",
+        "lint-staged": "^10.3.0",
+        "prettier": "npm:wp-prettier@2.0.5",
+        "stylelint-config-wordpress": "^17.0.0"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "packages/*/package.json": [
+            "wp-scripts lint-pkg-json"
+        ],
+        "{*.css,*.scss}": [
+            "npm run lint-style"
+        ],
+        "*.js": [
+            "npm run format-js",
+            "npm run lint-js"
+        ],
+        "*.php": [
+            "npm run lint-php"
+        ]
     }
-  },
-  "lint-staged": {
-    "packages/*/package.json": [
-      "wp-scripts lint-pkg-json"
-    ],
-    "{*.css,*.scss}": [
-      "npm run lint-style"
-    ],
-    "*.js": [
-      "npm run format-js",
-      "npm run lint-js"
-    ],
-    "*.php": [
-      "npm run lint-php"
-    ]
-  }
 }
