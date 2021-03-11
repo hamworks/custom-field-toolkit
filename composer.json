@@ -4,7 +4,7 @@
     "type": "wordpress-plugin",
     "autoload": {
         "psr-4": {
-            "HAMWORKS\\Custom_Fields_UI\\": "inc"
+            "HAMWORKS\\Custom_Field_UI_For_Block_Editor\\": "inc"
         }
     },
     "require-dev": {

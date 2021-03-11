@@ -1,13 +1,32 @@
 {
-    "name": "@hamworks/custom-field-ui-from-json",
-    "scripts": {
-        "env": "wp-env",
-        "start": "wp-scripts start ./src/index.js",
-        "build": "NODE_ENV=production wp-scripts build ./src/index.js",
-        "format-js": "wp-scripts format-js ./src",
-        "lint-php": "./vendor/bin/phpcs --standard=./.phpcs.xml.dist",
-        "lint-js": "wp-scripts lint-js ./src",
-        "lint-js:fix": "wp-scripts lint-js ./src --fix"
+    "name": "@hamworks/custom-field-ui",
+    "version": "0.0.0",
+    "description": "Custom field ui generator",
+    "author": "Hiroshi Urabe <mail@torounit.com> (https://torounit.com)",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "WordPress",
+        "editor"
+    ],
+    "homepage": "https://github.com/team-hamworks/custom-field-ui-for-block-editor",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/team-hamworks/custom-field-ui-for-block-editor.git"
+    },
+    "bugs": {
+        "url": "https://github.com/team-hamworks/custom-field-ui-for-block-editor/issues"
+    },
+    "dependencies": {
+        "@wordpress/api-fetch": "^3.21.5",
+        "@wordpress/block-editor": "^5.2.10",
+        "@wordpress/components": "^12.0.8",
+        "@wordpress/core-data": "^2.25.9",
+        "@wordpress/data": "^4.26.8",
+        "@wordpress/edit-post": "^3.26.10",
+        "@wordpress/element": "^2.19.1",
+        "@wordpress/i18n": "^3.18.0",
+        "@wordpress/plugins": "^2.24.7",
+        "react": "^16.14.0"
     },
     "devDependencies": {
         "@babel/preset-typescript": "^7.13.0",
@@ -25,9 +44,34 @@
         "typescript": "^4.2.3",
         "wp-types": "^1.9.0"
     },
+    "scripts": {
+        "env": "wp-env",
+        "start": "wp-scripts start ./src/index.js",
+        "build": "NODE_ENV=production wp-scripts build ./src/index.js",
+        "format-js": "wp-scripts format-js ./src",
+        "lint-php": "./vendor/bin/phpcs --standard=./.phpcs.xml.dist",
+        "lint-js": "wp-scripts lint-js ./src",
+        "lint-js:fix": "wp-scripts lint-js ./src --fix"
+    },
     "husky": {
         "hooks": {
             "pre-commit": "lint-staged"
+        }
+    },
+    "release-it": {
+        "hooks": {
+            "before:bump": "bash ./bin/create-release.sh custom-field-ui-for-block-editor ${version}",
+            "after:bump": "bash ./bin/create-zip.sh custom-field-ui-for-block-editor",
+            "after:release": "bash ./bin/cleanup.sh custom-field-ui-for-block-editor"
+        },
+        "github": {
+            "release": true,
+            "assets": [
+                "editors-note.zip"
+            ]
+        },
+        "npm": {
+            "publish": false
         }
     },
     "lint-staged": {
@@ -44,15 +88,5 @@
         "*.php": [
             "npm run lint-php"
         ]
-    },
-    "dependencies": {
-        "@wordpress/api-fetch": "^3.21.5",
-        "@wordpress/block-editor": "^5.2.10",
-        "@wordpress/components": "^12.0.8",
-        "@wordpress/core-data": "^2.25.9",
-        "@wordpress/data": "^4.26.8",
-        "@wordpress/edit-post": "^3.26.10",
-        "@wordpress/element": "^2.19.1",
-        "@wordpress/plugins": "^2.24.7"
     }
 }

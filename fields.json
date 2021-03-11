@@ -1,5 +1,5 @@
 {
-    "title": "title",
+    "post_type": "",
     "fields": [
         {
             "key": "meta_number",
@@ -46,9 +46,7 @@
                     "enum": ["Alice", "Bob"]
                 }
             }
-        }
-    ],
-    "experimentalFields": [
+        },
         {
             "key": "meta_email",
             "type": "string",
@@ -58,7 +56,10 @@
                     "format": "email"
                 }
             }
-        },
+        }
+    ],
+    "experimentalFields": [
+
         {
             "key": "meta_color",
             "type": "string",

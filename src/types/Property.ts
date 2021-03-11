@@ -19,9 +19,10 @@ interface BooleanProp extends ApiProp {
 	default: boolean;
 }
 
-interface ArrayProps extends ApiProp {
+export interface ArrayProps< T extends ApiProp = ApiProp > extends ApiProp {
 	type: 'array';
-	default: unknown[];
+	items: T;
+	default: T[];
 }
 
 export type Property = StringProp | NumberProp | BooleanProp | ArrayProps;
