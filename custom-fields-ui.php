@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Plugin Name: Custom Fields Ui
+ * Plugin Name: Custom Fields UI
  * Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
  * Description: A brief description of the Plugin.
  * Version: 1.0
@@ -10,17 +9,17 @@
  * License: A "Slug" license name e.g. GPL2
  **/
 
-use HAMWORKS\Custom_Fields_UI_From_JSON\Fields as Fields;
+use HAMWORKS\Custom_Fields_UI\Fields as Fields;
 
 require_once __DIR__ . '/vendor/autoload.php';
 
 add_action(
 	'admin_enqueue_scripts',
 	function() {
-		$asset_file = include __DIR__ . '/build/admin.asset.php';
+		$asset_file = include __DIR__ . '/build/index.asset.php';
 		wp_enqueue_script(
 			'custom-fields-ui',
-			plugins_url( 'build/admin.js', __FILE__ ),
+			plugins_url( 'build/index.js', __FILE__ ),
 			$asset_file['dependencies'],
 			$asset_file['version'],
 			true

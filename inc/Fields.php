@@ -1,6 +1,6 @@
 <?php
 
-namespace HAMWORKS\Custom_Fields_UI_From_JSON;
+namespace HAMWORKS\Custom_Fields_UI;
 
 /**
  * Class Fields
@@ -20,10 +20,10 @@ class Fields {
 	 * Factory method.
 	 *
 	 * @param string $field_data_file
-	 * @param string $post_type
 	 */
-	public static function create_from_json( string $field_data_file, $post_type = '' ) {
-		$data = json_decode( file_get_contents( $field_data_file ), true );
+	public static function create_from_json( string $field_data_file ) {
+		$data      = json_decode( file_get_contents( $field_data_file ), true );
+		$post_type = $data['post_type'] ?? '';
 		new Fields( $data['fields'], $post_type );
 	}
 

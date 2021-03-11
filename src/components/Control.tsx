@@ -9,10 +9,18 @@ import {
 	PanelRow,
 } from '@wordpress/components';
 
+// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 import { __experimentalColorGradientControl as ColorGradientControl } from '@wordpress/block-editor';
 
-const selectUserInterface = ( { type, schema } ) => {
-	if ( schema?.enum?.length > 0 ) {
+const selectUserInterface = ( {
+	type,
+	...props
+}: {
+	type: string;
+	enum?: string[] | number[];
+	format?: string;
+} ) => {
+	if ( props?.enum?.length > 0 ) {
 		return 'select';
 	}
 
@@ -24,35 +32,39 @@ const selectUserInterface = ( { type, schema } ) => {
 		return 'number';
 	}
 
-	if ( schema?.format === 'email' ) {
+	if ( props?.format === 'email' ) {
 		return 'email';
 	}
 
-	if ( schema?.format === 'hex-color' ) {
+	if ( props?.format === 'hex-color' ) {
 		return 'color';
 	}
 
-	if ( schema?.format === 'date-time' ) {
+	if ( props?.format === 'date-time' ) {
 		return 'date-time';
 	}
 
-	if ( schema?.format === 'uri' ) {
+	if ( props?.format === 'uri' ) {
 		return 'url';
 	}
 
 	return type;
 };
 
-const Control = ( {
-	name,
-	type,
-	label,
-	value,
-	onChange,
-	schema = {},
-	...props
-} ) => {
-	const controlType = selectUserInterface( { type, schema } );
+const Control: React.FC< {
+	name: string;
+	type: string;
+	label: string;
+	value: any;
+	onChange: ( v: any ) => void;
+	format?: string;
+	[ p: string ]: any;
+} > = ( { name, type, label, value, onChange, format, ...props } ) => {
+	const controlType = selectUserInterface( {
+		type,
+		format,
+		enum: props.enum,
+	} );
 	switch ( controlType ) {
 		case 'color': {
 			return (
@@ -126,7 +138,7 @@ const Control = ( {
 					label={ label }
 					labelposition="top"
 					value={ value }
-					options={ ( schema.enum || [] ).map( ( v ) => ( {
+					options={ ( props.enum || [] ).map( ( v ) => ( {
 						value: v,
 						label: v,
 					} ) ) }

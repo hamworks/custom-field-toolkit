@@ -1,8 +1,10 @@
 {
-    "name": "hamworks/custom-field-ui-from-json",
+    "name": "hamworks/custom-field-ui",
+    "description": "",
+    "type": "wordpress-plugin",
     "autoload": {
         "psr-4": {
-            "HAMWORKS\\Custom_Fields_UI_From_JSON\\": "inc"
+            "HAMWORKS\\Custom_Fields_UI\\": "inc"
         }
     },
     "require-dev": {
@@ -17,6 +19,7 @@
         "phpcs": "phpcs --standard=./.phpcs.xml.dist"
     },
     "require": {
+        "php": ">=7.3",
         "ext-json": "*"
     }
 }
