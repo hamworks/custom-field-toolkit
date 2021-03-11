@@ -1,5 +1,5 @@
 {
-    "name": "hamworks/custom-field-ui",
+    "name": "hamworks/custom-field-ui-for-block-editor",
     "description": "",
     "type": "wordpress-plugin",
     "autoload": {
