@@ -5,7 +5,7 @@
     ],
     "config": {
         "WP_ENVIRONMENT_TYPE": "local",
-        "HW_CUSTOM_FIELD_UI_FOR_BLOCK_EDITOR_DEV": true
+        "CUSTOM_FIELD_TOOLKIT_DEV": true
     },
     "port": 5678,
     "testsPort": 5679

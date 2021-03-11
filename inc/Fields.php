@@ -1,6 +1,6 @@
 <?php
 
-namespace HAMWORKS\Custom_Field_UI_For_Block_Editor;
+namespace HAMWORKS\Custom_Field_Toolkit;
 
 /**
  * Class Fields

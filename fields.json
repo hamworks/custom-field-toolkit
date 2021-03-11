@@ -55,7 +55,8 @@
                 "schema": {
                     "format": "email"
                 }
-            }
+            },
+            "default": "test@example.test"
         }
     ],
     "experimentalFields": [

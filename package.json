@@ -1,5 +1,5 @@
 {
-    "name": "@hamworks/custom-field-ui-for-block-editor",
+    "name": "@hamworks/custom-field-toolkit",
     "version": "0.0.0",
     "description": "Custom field ui generator",
     "author": "Hiroshi Urabe <mail@torounit.com> (https://torounit.com)",
@@ -8,13 +8,13 @@
         "WordPress",
         "editor"
     ],
-    "homepage": "https://github.com/team-hamworks/custom-field-ui-for-block-editor",
+    "homepage": "https://github.com/team-hamworks/custom-field-toolkit",
     "repository": {
         "type": "git",
-        "url": "https://github.com/team-hamworks/custom-field-ui-for-block-editor.git"
+        "url": "https://github.com/team-hamworks/custom-field-toolkit.git"
     },
     "bugs": {
-        "url": "https://github.com/team-hamworks/custom-field-ui-for-block-editor/issues"
+        "url": "https://github.com/team-hamworks/custom-field-toolkit/issues"
     },
     "dependencies": {
         "@wordpress/api-fetch": "^3.21.5",
@@ -60,14 +60,14 @@
     },
     "release-it": {
         "hooks": {
-            "before:bump": "bash ./bin/create-release.sh custom-field-ui-for-block-editor ${version}",
-            "after:bump": "bash ./bin/create-zip.sh custom-field-ui-for-block-editor",
-            "after:release": "bash ./bin/cleanup.sh custom-field-ui-for-block-editor"
+            "before:bump": "bash ./bin/create-release.sh custom-field-toolkit ${version}",
+            "after:bump": "bash ./bin/create-zip.sh custom-field-toolkit",
+            "after:release": "bash ./bin/cleanup.sh custom-field-toolkit"
         },
         "github": {
             "release": true,
             "assets": [
-                "custom-field-ui-for-block-editor.zip"
+                "custom-field-toolkit.zip"
             ]
         },
         "npm": {

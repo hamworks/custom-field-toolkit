@@ -1,10 +1,10 @@
 {
-    "name": "hamworks/custom-field-ui-for-block-editor",
+    "name": "hamworks/custom-field-toolkit",
     "description": "",
     "type": "wordpress-plugin",
     "autoload": {
         "psr-4": {
-            "HAMWORKS\\Custom_Field_UI_For_Block_Editor\\": "inc"
+            "HAMWORKS\\Custom_Field_Toolkit\\": "inc"
         }
     },
     "require-dev": {
