@@ -30,7 +30,7 @@ class Fields {
 	/**
 	 * Factory constructor.
 	 *
-	 * @param array $fields
+	 * @param array{type: string, description: string, default: mixed} $fields
 	 * @param string $post_type
 	 */
 	public function __construct( array $fields, $post_type = '' ) {
@@ -43,30 +43,31 @@ class Fields {
 	 * Register fields.
 	 */
 	private function register_fields() {
-		foreach ( $this->get_fields() as $field ) {
-			$this->register_field( $field );
+		foreach ( $this->get_fields() as $key => $field ) {
+			$this->register_field( $key, $field );
 		}
 	}
 
 	/**
 	 * Register post meta.
 	 *
+	 * @param string $meta_key
 	 * @param $field
 	 */
-	private function register_field( $field ) {
+	private function register_field( string $meta_key, $field ) {
 		$default = array(
 			'single'       => true,
 			'show_in_rest' => true,
 		);
 
-		if ( is_protected_meta( $field['key'] ) ) {
+		if ( is_protected_meta( $meta_key ) ) {
 			$default['auth_callback'] = function ( $allowed, $meta_key, $post_ID, $user_id, $cap, $caps ) {
 				return current_user_can( 'edit_post', $post_ID );
 			};
 		}
 
 		$args = array_merge( $default, (array) $field );
-		register_post_meta( $this->post_type, $field['key'], $args );
+		register_post_meta( $this->post_type, $meta_key, $args );
 	}
 
 	/**

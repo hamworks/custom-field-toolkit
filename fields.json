@@ -1,32 +1,28 @@
 {
     "post_type": "",
-    "fields": [
-        {
-            "key": "meta_number",
+    "fields": {
+
+        "meta_number": {
             "type": "number",
             "description": "Number",
             "default": 0
         },
-        {
-            "key": "meta_boolean",
+        "meta_boolean": {
             "type": "boolean",
             "description": "Boolean",
             "default": false
         },
-        {
-            "key": "meta_string",
+        "meta_string": {
             "type": "string",
             "description": "String",
             "default": ""
         },
-        {
-            "key": "_meta_private_string",
+        "_meta_private_string": {
             "type": "string",
             "description": "Private String",
             "default": ""
         },
-        {
-            "key": "meta_url",
+        "meta_url": {
             "type": "string",
             "description": "URL",
             "show_in_rest": {
@@ -36,19 +32,17 @@
             },
             "default": ""
         },
-        {
-            "key": "meta_select",
+        "meta_select": {
             "type": "string",
             "description": "Select",
             "default": "Bob",
             "show_in_rest": {
                 "schema": {
-                    "enum": ["Alice", "Bob"]
+                    "enum": ["Alice", "Bob", "Charlie"]
                 }
             }
         },
-        {
-            "key": "meta_email",
+        "meta_email": {
             "type": "string",
             "description": "Email",
             "show_in_rest": {
@@ -58,11 +52,9 @@
             },
             "default": "test@example.test"
         }
-    ],
-    "experimentalFields": [
-
-        {
-            "key": "meta_color",
+    },
+    "experimentalFields": {
+        "meta_color": {
             "type": "string",
             "description": "color",
             "show_in_rest": {
@@ -71,8 +63,7 @@
                 }
             }
         },
-        {
-            "key": "meta_date_time",
+        "meta_date_time": {
             "type": "string",
             "description": "date time",
             "show_in_rest": {
@@ -81,6 +72,5 @@
                 }
             }
         }
-    ]
-
+    }
 }
