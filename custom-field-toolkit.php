@@ -3,7 +3,7 @@
  * Plugin Name: Custom Field UI for Block Editor
  * Plugin URI: https://github.com/team-hamworks/custom-field-toolkit
  * Description: Custom Field UI for Block Editor.
- * Version: 0.0.1
+ * Version: 0.0.2
  * Author: HAMWORKS
  * Author URI: https://github.com/team-hamworks/
  * License: GPL2 or later
