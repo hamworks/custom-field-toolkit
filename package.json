@@ -1,6 +1,6 @@
 {
     "name": "@hamworks/custom-field-toolkit",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Custom field ui generator",
     "author": "Hiroshi Urabe <mail@torounit.com> (https://torounit.com)",
     "license": "GPL-2.0-or-later",
