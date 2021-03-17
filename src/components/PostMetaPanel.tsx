@@ -42,7 +42,10 @@ const PostMetaPanel: React.FC = () => {
 
 	return (
 		<>
-			<PluginDocumentSettingPanel title={ __( 'Custom fields' ) } initialOpen={ true }>
+			<PluginDocumentSettingPanel
+				title={ __( 'Custom fields' ) }
+				initialOpen={ true }
+			>
 				<PostMetaControls
 					postType={ postType }
 					properties={ properties }

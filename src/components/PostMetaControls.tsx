@@ -11,13 +11,12 @@ const PostMetaControls: React.FC< {
 	};
 } > = ( { postType, properties } ) => {
 	const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
-
 	return (
 		<>
 			{ Object.entries( properties ).map(
 				( [
 					key,
-					{ description, type, default: defaultValue, ...props },
+					{ description, default: defaultValue, ...props },
 				] ) => {
 					const updateValue = ( value ) => {
 						setMeta( { ...meta, [ key ]: value } );
@@ -26,7 +25,6 @@ const PostMetaControls: React.FC< {
 						<Control
 							key={ key }
 							name={ key }
-							type={ type }
 							{ ...props }
 							label={ description }
 							value={ meta[ key ] ?? defaultValue }

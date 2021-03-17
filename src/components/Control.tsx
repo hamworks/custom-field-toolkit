@@ -8,9 +8,11 @@ import {
 	DateTimePicker,
 	PanelRow,
 } from '@wordpress/components';
-
-// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
-import { __experimentalColorGradientControl as ColorGradientControl } from '@wordpress/block-editor';
+import {
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalColorGradientControl as ColorGradientControl,
+} from '@wordpress/block-editor';
+import MediaControl from './MediaControl';
 
 const selectUserInterface = ( {
 	type,
@@ -19,7 +21,15 @@ const selectUserInterface = ( {
 	type: string;
 	enum?: string[] | number[];
 	format?: string;
+	ui?: string;
 } ) => {
+	if ( props.ui ) {
+		return props.ui;
+	}
+	if ( props?.format ) {
+		return props.format;
+	}
+
 	if ( props?.enum?.length > 0 ) {
 		return 'select';
 	}
@@ -32,22 +42,6 @@ const selectUserInterface = ( {
 		return 'number';
 	}
 
-	if ( props?.format === 'email' ) {
-		return 'email';
-	}
-
-	if ( props?.format === 'hex-color' ) {
-		return 'color';
-	}
-
-	if ( props?.format === 'date-time' ) {
-		return 'date-time';
-	}
-
-	if ( props?.format === 'uri' ) {
-		return 'url';
-	}
-
 	return type;
 };
 
@@ -58,15 +52,36 @@ const Control: React.FC< {
 	value: any;
 	onChange: ( v: any ) => void;
 	format?: string;
-	[ p: string ]: any;
+	enum?: string[] | number[];
+	[ p: string ]: string | number | string[] | number[] | unknown[] | any;
 } > = ( { name, type, label, value, onChange, format, ...props } ) => {
 	const controlType = selectUserInterface( {
+		...props,
 		type,
 		format,
-		enum: props.enum,
 	} );
 	switch ( controlType ) {
-		case 'color': {
+		case 'image': {
+			return (
+				<MediaControl
+					type="image"
+					label={ label }
+					value={ value }
+					onChange={ onChange }
+				/>
+			);
+		}
+		case 'attachment': {
+			return (
+				<MediaControl
+					type="attachment"
+					label={ label }
+					value={ value }
+					onChange={ onChange }
+				/>
+			);
+		}
+		case 'hex-color': {
 			return (
 				<ColorGradientControl
 					label={ label }
@@ -109,15 +124,13 @@ const Control: React.FC< {
 		}
 		case 'checkbox': {
 			return (
-				<PanelRow>
-					<CheckboxControl
-						{ ...props }
-						name={ name }
-						label={ label }
-						checked={ value }
-						onChange={ onChange }
-					/>
-				</PanelRow>
+				<CheckboxControl
+					{ ...props }
+					name={ name }
+					label={ label }
+					checked={ value }
+					onChange={ onChange }
+				/>
 			);
 		}
 		case 'textarea': {

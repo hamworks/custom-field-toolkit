@@ -1,11 +1,30 @@
 {
     "post_type": "",
     "fields": {
-
         "meta_number": {
             "type": "number",
             "description": "Number",
             "default": 0
+        },
+        "meta_image": {
+            "type": "number",
+            "description": "Image",
+            "default": 0,
+            "show_in_rest": {
+                "schema": {
+                    "ui": "image"
+                }
+            }
+        },
+        "meta_attachment": {
+            "type": "number",
+            "description": "Attachment",
+            "default": 0,
+            "show_in_rest": {
+                "schema": {
+                    "ui": "attachment"
+                }
+            }
         },
         "meta_boolean": {
             "type": "boolean",
@@ -15,7 +34,12 @@
         "meta_string": {
             "type": "string",
             "description": "String",
-            "default": ""
+            "default": "",
+            "show_in_rest": {
+                "schema": {
+                    "required": true
+                }
+            }
         },
         "_meta_private_string": {
             "type": "string",
@@ -43,7 +67,6 @@
             }
         },
         "meta_email": {
-            "type": "string",
             "description": "Email",
             "show_in_rest": {
                 "schema": {
