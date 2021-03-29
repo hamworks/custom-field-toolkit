@@ -16,14 +16,21 @@ require_once __DIR__ . '/vendor/autoload.php';
 add_action(
 	'admin_enqueue_scripts',
 	function() {
-		$asset_file = include __DIR__ . '/build/index.asset.php';
+		$asset_file = include __DIR__ . '/build/plugin.asset.php';
 		wp_enqueue_script(
 			'custom-field-toolkit',
-			plugins_url( 'build/index.js', __FILE__ ),
+			plugins_url( 'build/plugin.js', __FILE__ ),
 			$asset_file['dependencies'],
 			$asset_file['version'],
 			true
 		);
+	}
+);
+
+add_action(
+	'init',
+	function () {
+		register_block_type_from_metadata( __DIR__ . '/src/blocks/custom-fields' );
 	}
 );
 

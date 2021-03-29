@@ -6,19 +6,21 @@ import {
 	Dropdown,
 	Button,
 	DateTimePicker,
-	PanelRow,
+	DatePicker,
 } from '@wordpress/components';
 import {
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
 	__experimentalColorGradientControl as ColorGradientControl,
 } from '@wordpress/block-editor';
 import MediaControl from './MediaControl';
+import React from 'react';
+import { Type } from '../api/meta';
 
 const selectUserInterface = ( {
 	type,
 	...props
 }: {
-	type: string;
+	type: string | string[];
 	enum?: string[] | number[];
 	format?: string;
 	ui?: string;
@@ -34,6 +36,13 @@ const selectUserInterface = ( {
 		return 'select';
 	}
 
+	if ( Array.isArray( type ) ) {
+		return selectUserInterface( {
+			type: type[ 0 ],
+			...props,
+		} );
+	}
+
 	if ( type === 'boolean' ) {
 		return 'checkbox';
 	}
@@ -47,13 +56,15 @@ const selectUserInterface = ( {
 
 const Control: React.FC< {
 	name: string;
-	type: string;
+	type: Type | Type[];
 	label: string;
+	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	value: any;
+	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	onChange: ( v: any ) => void;
 	format?: string;
 	enum?: string[] | number[];
-	[ p: string ]: string | number | string[] | number[] | unknown[] | any;
+	[ p: string ]: string | number | string[] | number[] | unknown[] | unknown;
 } > = ( { name, type, label, value, onChange, format, ...props } ) => {
 	const controlType = selectUserInterface( {
 		...props,
@@ -113,6 +124,36 @@ const Control: React.FC< {
 						) }
 						renderContent={ () => (
 							<DateTimePicker
+								currentDate={ value }
+								onChange={ onChange }
+								is12Hour={ false }
+							/>
+						) }
+					/>
+				</>
+			);
+		}
+		case 'date': {
+			return (
+				<>
+					<span>{ label }</span>
+					<Dropdown
+						position="bottom left"
+						contentClassName="edit-post-post-schedule__dialog"
+						renderToggle={ ( { onToggle, isOpen } ) => (
+							<>
+								<Button
+									className="edit-post-post-schedule__toggle"
+									onClick={ onToggle }
+									aria-expanded={ isOpen }
+									isTertiary
+								>
+									{ value || 'Select datetime.' }
+								</Button>
+							</>
+						) }
+						renderContent={ () => (
+							<DatePicker
 								currentDate={ value }
 								onChange={ onChange }
 								is12Hour={ false }

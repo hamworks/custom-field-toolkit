@@ -76,6 +76,15 @@
             "default": "test@example.test"
         }
     },
+    "meta_date": {
+        "type": "string",
+        "description": "date",
+        "show_in_rest": {
+            "schema": {
+                "format": "date"
+            }
+        }
+    },
     "experimentalFields": {
         "meta_color": {
             "type": "string",
@@ -91,7 +100,7 @@
             "description": "date time",
             "show_in_rest": {
                 "schema": {
-                    "format": "date-time"
+                    "format": "date"
                 }
             }
         }

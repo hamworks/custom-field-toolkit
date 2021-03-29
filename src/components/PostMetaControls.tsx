@@ -1,15 +1,16 @@
 import { useEntityProp } from '@wordpress/core-data';
-
+import { useSelect } from '@wordpress/data';
 import Control from './Control';
-import { Property } from '../types/Property';
 import React from 'react';
+import { useRegisteredPostMeta } from '../api/meta';
 
-const PostMetaControls: React.FC< {
-	postType: string;
-	properties: {
-		[ key: string ]: Property;
-	};
-} > = ( { postType, properties } ) => {
+const PostMetaControls: React.FC = () => {
+	const postType = useSelect(
+		( select ) => select( 'core/editor' ).getCurrentPostType(),
+		[]
+	);
+
+	const properties = useRegisteredPostMeta( postType );
 	const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
 	return (
 		<>

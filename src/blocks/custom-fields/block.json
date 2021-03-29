@@ -1,0 +1,9 @@
+{
+    "name": "custom-field-ui/custom-fields",
+    "title": "Custom Fields",
+    "category": "text",
+    "icon": "text-page",
+    "apiVersion": 2,
+    "description": "Show custom field value",
+    "editorScript": "file:../../../build/block.js"
+}
