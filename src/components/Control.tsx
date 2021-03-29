@@ -7,6 +7,7 @@ import {
 	Button,
 	DateTimePicker,
 	DatePicker,
+	Placeholder
 } from '@wordpress/components';
 import {
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
@@ -67,7 +68,19 @@ const Control: React.FC< {
 	format?: string;
 	enum?: string[] | number[];
 	[ p: string ]: string | number | string[] | number[] | unknown[] | unknown;
-} > = ( { name, type, label, value, onChange, format, ...props } ) => {
+} > = ( {
+	name,
+	type,
+	label,
+	value,
+	onChange,
+	format,
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	anyOf,
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
+	oneOf,
+	...props
+} ) => {
 	const controlType = selectUserInterface( {
 		...props,
 		type,
