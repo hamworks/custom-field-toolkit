@@ -7,7 +7,6 @@ import {
 	Button,
 	DateTimePicker,
 	DatePicker,
-	Placeholder
 } from '@wordpress/components';
 import {
 	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
