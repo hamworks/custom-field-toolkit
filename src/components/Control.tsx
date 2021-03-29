@@ -14,7 +14,7 @@ import {
 } from '@wordpress/block-editor';
 import MediaControl from './MediaControl';
 import React from 'react';
-import { Type } from '../api/meta';
+import { Setting, Type } from '../api/meta';
 
 const selectUserInterface = ( {
 	type,
@@ -56,7 +56,9 @@ const selectUserInterface = ( {
 
 const Control: React.FC< {
 	name: string;
-	type: Type | Type[];
+	oneOf?: Setting[];
+	anyOf?: Setting[];
+	type?: Type | Type[];
 	label: string;
 	/* eslint-disable-next-line @typescript-eslint/no-explicit-any */
 	value: any;

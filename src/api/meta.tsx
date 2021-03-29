@@ -19,10 +19,13 @@ type Properties = {
 	[ p: string ]: Setting;
 };
 
-type Setting = {
+export type Setting = {
+	oneOf?: Setting[];
+	anyOf?: Setting[];
+	title?: string;
 	description?: string;
 	default: unknown;
-	type: Type | Type[];
+	type?: Type | Type[];
 	context?: Context;
 	format?: string;
 	required?: boolean;
