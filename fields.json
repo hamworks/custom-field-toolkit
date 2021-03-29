@@ -1,6 +1,26 @@
 {
     "post_type": "",
     "fields": {
+        "meta_url_or_email": {
+            "type": "string",
+            "default": "",
+            "show_in_rest": {
+                "schema": {
+                    "anyOf": [
+                        {
+                            "type": "string",
+                            "description": "Email",
+                            "format": "email"
+                        },
+                        {
+                            "type": "string",
+                            "description": "URL",
+                            "format": "uri"
+                        }
+                    ]
+                }
+            }
+        },
         "meta_number": {
             "type": "number",
             "description": "Number",
