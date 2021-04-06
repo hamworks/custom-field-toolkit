@@ -29,6 +29,9 @@ const selectUserInterface = ( {
 		return props.ui;
 	}
 	if ( props?.format ) {
+		if ( props.format === 'uri' ) {
+			return 'url';
+		}
 		return props.format;
 	}
 
@@ -221,10 +224,10 @@ const Control: React.FC< {
 				<TextControl
 					{ ...props }
 					name={ name }
-					type={ controlType }
 					label={ label }
 					value={ value || '' }
 					onChange={ onChange }
+
 				/>
 			);
 		}

@@ -3,6 +3,7 @@
     "fields": {
         "meta_url_or_email": {
             "type": "string",
+            "description": "Email or URL",
             "default": "",
             "show_in_rest": {
                 "schema": {
@@ -66,16 +67,6 @@
             "description": "Private String",
             "default": ""
         },
-        "meta_url": {
-            "type": "string",
-            "description": "URL",
-            "show_in_rest": {
-                "schema": {
-                    "format": "uri"
-                }
-            },
-            "default": ""
-        },
         "meta_select": {
             "type": "string",
             "description": "Select",
@@ -94,6 +85,16 @@
                 }
             },
             "default": "test@example.test"
+        },
+        "meta_url": {
+            "type": "string",
+            "description": "URL",
+            "show_in_rest": {
+                "schema": {
+                    "format": "uri"
+                }
+            },
+            "default": ""
         }
     },
     "meta_date": {
