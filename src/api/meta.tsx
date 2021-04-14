@@ -54,7 +54,8 @@ export const fetchRegisteredPostMeta = async (
 		routes: { [ namespace: string ]: Route };
 	} = await apiFetch( { path: '/wp/v2' } );
 	const endpoints =
-		apiDocs.routes[ `/wp/v2/${ restBase }/(?P<id>[\\d]+)` ].endpoints;
+		apiDocs.routes[ `/wp/v2/${ restBase }/(?P<id>[\\d]+)` ]?.endpoints ||
+		[];
 	return endpoints.find( ( { methods } ) => methods.includes( 'POST' ) );
 };
 

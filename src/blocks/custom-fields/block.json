@@ -1,9 +1,10 @@
 {
-    "name": "custom-field-ui/custom-fields",
+    "name": "custom-field-toolkit/custom-fields",
     "title": "Custom Fields",
     "category": "text",
-    "icon": "text-page",
+    "icon": "block-default",
     "apiVersion": 2,
+    "attributes": {},
     "description": "Show custom field value",
     "editorScript": "file:../../../build/block.js"
 }

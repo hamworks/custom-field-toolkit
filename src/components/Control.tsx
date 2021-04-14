@@ -224,10 +224,10 @@ const Control: React.FC< {
 				<TextControl
 					{ ...props }
 					name={ name }
+					type={ controlType }
 					label={ label }
 					value={ value || '' }
 					onChange={ onChange }
-
 				/>
 			);
 		}

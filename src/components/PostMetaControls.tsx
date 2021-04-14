@@ -5,7 +5,7 @@ import React from 'react';
 import { useRegisteredPostMeta } from '../api/meta';
 
 const PostMetaControls: React.FC = () => {
-	const postType = useSelect(
+	const postType: string = useSelect(
 		( select ) => select( 'core/editor' ).getCurrentPostType(),
 		[]
 	);
