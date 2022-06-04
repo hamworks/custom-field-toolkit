@@ -224,6 +224,13 @@ const Control: React.FC< {
 				<TextControl
 					{ ...props }
 					name={ name }
+					onCopy={ ( event ) => {
+						event.nativeEvent.stopImmediatePropagation();
+						event.nativeEvent.stopPropagation();
+						event.stopPropagation();
+						event.persist();
+						return false;
+					} }
 					type={ controlType }
 					label={ label }
 					value={ value || '' }
