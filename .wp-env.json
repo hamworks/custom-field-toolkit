@@ -1,5 +1,5 @@
 {
-    "core": "WordPress/Wordpress#5.7",
+    "core": "WordPress/Wordpress#master",
     "plugins": [
         "."
     ],

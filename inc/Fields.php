@@ -33,7 +33,7 @@ class Fields {
 	 * @param array{type: string, description: string, default: mixed} $fields
 	 * @param string $post_type
 	 */
-	public function __construct( array $fields, $post_type = '' ) {
+	public function __construct( array $fields, string $post_type = '' ) {
 		$this->fields    = $fields;
 		$this->post_type = $post_type;
 		$this->register_fields();

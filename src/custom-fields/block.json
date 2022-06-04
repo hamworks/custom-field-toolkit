@@ -6,5 +6,5 @@
     "apiVersion": 2,
     "attributes": {},
     "description": "Show custom field value",
-    "editorScript": "file:../../../build/block.js"
+    "editorScript": "file:./index.tsx"
 }

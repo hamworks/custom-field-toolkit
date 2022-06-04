@@ -19,7 +19,12 @@
         "phpcs": "phpcs --standard=./.phpcs.xml.dist"
     },
     "require": {
-        "php": ">=7.3",
+        "php": ">=7.4",
         "ext-json": "*"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
     }
 }
